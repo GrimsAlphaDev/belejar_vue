@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ pesan }}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="pesan">
+            Arahkan mouse Anda kesini dan tunggu dalam beberapa detik
+            untuk melihat judul pesan yang dinamis
+        </span>
+    </div>
+
+    <div id="app-3">
+        <span v-bind:title="message">
+            TESTING MESSAGE
+        </span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                pesan: 'Apakah Ini Vue?'
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                pesan: 'Anda memuat halaman ini pada jam ' + new Date().toLocaleString()
+            }
+        })
+
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                message: 'Anda memuat halaman ini pada jam ' + new Date().toLocaleString() + ' dengan menggunakan Vue.js'
+            }
+        })
+    </script>
+</body>
+
+</html>
