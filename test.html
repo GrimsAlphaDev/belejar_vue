@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar VUE JS</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <mahasiswas
+        v-for="mahasiswa in listMhs"
+        v-bind:mhs="mahasiswa"
+        v-bind:id="mahasiswa.id"
+        ></mahasiswas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>       
+
+        Vue.component('mahasiswas', {
+            props: ['mhs'],
+            template: '<li>{{ mhs.name }}</li>'
+        })
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                listMhs: [
+                    {id: 0, name:'Gerad', age:12},
+                    {id: 1, name:'Gunner', age:12},
+                    {id: 3, name:'Pusher', age:12},
+                    {id: 4, name:'EnPiCe', age:12},
+                ]
+            }
+        })
+
+    </script>
+</body>
+
+</html>

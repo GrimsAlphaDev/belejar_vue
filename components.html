@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar VUE JS</title>
+</head>
+
+<body>
+
+    <div id="app-7">
+        <ol>
+            <!--
+            Sekarang kita sematkan masing - masing todo-item dengan todo obyek,
+            sehingga isinya bisa menjadi dinamis.
+            Kita juga perlu untuk menyematkan "key" di masing - masing komponen,
+            yang mana akan dijelaskan lebih lanjut nantinya.
+          -->
+            <todo-item v-for="item in barangBelanjaan" v-bind:todoing="item" v-bind:key="item.id"></todo-item>
+        </ol>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('todo-item', {
+            props: ['todoing'],
+            template: '<li>{{ todoing.barang }}</li>'
+        })
+
+        var app7 = new Vue({
+            el: '#app-7',
+            data: {
+                barangBelanjaan: [
+                    { id: 0, barang: 'Sayuran' },
+                    { id: 1, barang: 'Keju' },
+                    { id: 2, barang: 'Makanan yang lain' }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>
